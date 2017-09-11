@@ -5,7 +5,7 @@
  */
 package com.conversationkit.impl.node;
 
-import com.conversationkit.impl.node.ConversationNode;
+import com.conversationkit.model.IConversationSnippetButton;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
 import com.conversationkit.model.IConversationState;
@@ -30,6 +30,7 @@ public class HandlebarsNode<S extends IConversationState> extends ConversationNo
 
     protected final String suggestions;
     protected final String content;
+    protected final List<IConversationSnippetButton> buttons;
     protected final SnippetContentType contentType;
     protected final Handlebars handlebars = new Handlebars();
 
@@ -38,6 +39,7 @@ public class HandlebarsNode<S extends IConversationState> extends ConversationNo
         this.suggestions = null;
         this.content = content;
         this.contentType = contentType;
+        this.buttons = null;
     }
 
     public HandlebarsNode(int id, SnippetType type, String content, String suggestions, SnippetContentType contentType) {
@@ -45,6 +47,15 @@ public class HandlebarsNode<S extends IConversationState> extends ConversationNo
         this.suggestions = suggestions;
         this.content = content;
         this.contentType = contentType;
+        this.buttons = null;
+    }
+    
+    public HandlebarsNode(int id, SnippetType type, String content, List<IConversationSnippetButton> buttons, SnippetContentType contentType) {
+        super(id, type);
+        this.suggestions = null;
+        this.content = content;
+        this.contentType = contentType;
+        this.buttons = buttons;
     }
 
     @Override
@@ -83,6 +94,11 @@ public class HandlebarsNode<S extends IConversationState> extends ConversationNo
             logger.warning(e.getMessage());
             return null;
         }
+    }
+
+    @Override
+    public Iterable<IConversationSnippetButton> getButtons() {
+        return buttons;
     }
 
 }

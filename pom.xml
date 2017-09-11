@@ -5,7 +5,7 @@
     <artifactId>conversation-kit-handlebars</artifactId>
     <name>conversation-kit handlebars</name>
     <description>A conversation-kit node implementation that uses Handlebars as a template engine.</description>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <packaging>jar</packaging>
     <url>http://conversationkit.com</url>
     <licenses>
@@ -49,7 +49,7 @@
         <dependency>
             <groupId>com.conversationkit</groupId>
             <artifactId>conversation-kit</artifactId>
-            <version>[1.1,)</version>
+            <version>[1.2,)</version>
         </dependency>
         <dependency>
             <groupId>com.github.jknack</groupId>
